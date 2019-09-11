@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E135FBB232981A1001BE617 /* FinancialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E135FBA232981A1001BE617 /* FinancialManager.swift */; };
 		0E19E66123264D9A008AE8F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19E66023264D9A008AE8F0 /* AppDelegate.swift */; };
 		0E19E66323264D9A008AE8F0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19E66223264D9A008AE8F0 /* MainViewController.swift */; };
 		0E19E66823264D9B008AE8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19E66723264D9B008AE8F0 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E135FBA232981A1001BE617 /* FinancialManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialManager.swift; sourceTree = "<group>"; };
 		0E19E65D23264D9A008AE8F0 /* FinancialManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinancialManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E19E66023264D9A008AE8F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E19E66223264D9A008AE8F0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				0E19E66723264D9B008AE8F0 /* Assets.xcassets */,
 				0E19E66923264D9B008AE8F0 /* LaunchScreen.storyboard */,
 				0E19E66C23264D9B008AE8F0 /* Info.plist */,
+				0E135FBA232981A1001BE617 /* FinancialManager.swift */,
 			);
 			path = FinancialManager;
 			sourceTree = "<group>";
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E19E66323264D9A008AE8F0 /* MainViewController.swift in Sources */,
+				0E135FBB232981A1001BE617 /* FinancialManager.swift in Sources */,
 				0E19E67323264E1D008AE8F0 /* MainView.swift in Sources */,
 				0E19E66123264D9A008AE8F0 /* AppDelegate.swift in Sources */,
 			);
