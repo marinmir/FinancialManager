@@ -13,6 +13,9 @@
 		0E19E66823264D9B008AE8F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E19E66723264D9B008AE8F0 /* Assets.xcassets */; };
 		0E19E66B23264D9B008AE8F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E19E66923264D9B008AE8F0 /* LaunchScreen.storyboard */; };
 		0E19E67323264E1D008AE8F0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E19E67223264E1D008AE8F0 /* MainView.swift */; };
+		0E8C7CD0232D3F0B004DEFF6 /* AddRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C7CCF232D3F0B004DEFF6 /* AddRecordView.swift */; };
+		0E8C7CD2232D3F41004DEFF6 /* FinancialRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C7CD1232D3F41004DEFF6 /* FinancialRecord.swift */; };
+		0E8C7CD4232D3FD0004DEFF6 /* AddRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8C7CD3232D3FD0004DEFF6 /* AddRecordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		0E19E66A23264D9B008AE8F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0E19E66C23264D9B008AE8F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E19E67223264E1D008AE8F0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		0E8C7CCF232D3F0B004DEFF6 /* AddRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordView.swift; sourceTree = "<group>"; };
+		0E8C7CD1232D3F41004DEFF6 /* FinancialRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinancialRecord.swift; sourceTree = "<group>"; };
+		0E8C7CD3232D3FD0004DEFF6 /* AddRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +65,13 @@
 				0E19E66023264D9A008AE8F0 /* AppDelegate.swift */,
 				0E19E66223264D9A008AE8F0 /* MainViewController.swift */,
 				0E19E67223264E1D008AE8F0 /* MainView.swift */,
+				0E8C7CD3232D3FD0004DEFF6 /* AddRecordViewController.swift */,
+				0E8C7CCF232D3F0B004DEFF6 /* AddRecordView.swift */,
 				0E19E66723264D9B008AE8F0 /* Assets.xcassets */,
 				0E19E66923264D9B008AE8F0 /* LaunchScreen.storyboard */,
 				0E19E66C23264D9B008AE8F0 /* Info.plist */,
 				0E135FBA232981A1001BE617 /* FinancialManager.swift */,
+				0E8C7CD1232D3F41004DEFF6 /* FinancialRecord.swift */,
 			);
 			path = FinancialManager;
 			sourceTree = "<group>";
@@ -138,9 +147,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E19E66323264D9A008AE8F0 /* MainViewController.swift in Sources */,
+				0E8C7CD0232D3F0B004DEFF6 /* AddRecordView.swift in Sources */,
 				0E135FBB232981A1001BE617 /* FinancialManager.swift in Sources */,
+				0E8C7CD2232D3F41004DEFF6 /* FinancialRecord.swift in Sources */,
 				0E19E67323264E1D008AE8F0 /* MainView.swift in Sources */,
 				0E19E66123264D9A008AE8F0 /* AppDelegate.swift in Sources */,
+				0E8C7CD4232D3FD0004DEFF6 /* AddRecordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

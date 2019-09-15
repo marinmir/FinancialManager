@@ -19,6 +19,22 @@ class MainViewController: UIViewController {
     {
         self.view = MainView(self)
     }
-
+    
+    func onBtnAddExpense() {
+        let newVC = AddRecordViewController(categoriesArray: _fn._expenseCategories, mainVC: self)
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
+    func onBtnAddIncome() {
+        let newVC = AddRecordViewController(categoriesArray: _fn._incomeCategories, mainVC: self)
+        self.navigationController?.pushViewController(newVC, animated: true)
+    }
+    
+    public func addRecord(financialRecord fr: FinancialRecord) {
+        _fn.addRecord(financialRecord: fr)
+    }
+    
+    private var _fn = FinancialManager.getInstance()
+    
 }
 
