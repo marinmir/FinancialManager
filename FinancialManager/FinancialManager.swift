@@ -11,7 +11,6 @@ import UIKit
 class FinancialManager{
    private init() {     //for singleton
         self._balance = 0
-        
     }
     
     public func getBalance () -> Double {
@@ -22,24 +21,40 @@ class FinancialManager{
         _balance += v
     }
     
-    public func AddExpense (Value v: Double) {
+    public func addExpense (Value v: Double) {
         _balance -= v
     }
     
     public static func getInstance() -> FinancialManager {
-        return _fn
+        return _fm
     }
     
     public func addRecord(financialRecord fr: FinancialRecord) {
     
-      _fr.append(fr)
+        _financialRecords.append(fr)
+        
+        if _incomeCategories.contains(fr.category)
+        {
+            addIncome(Value: fr.value)
+        }
+        else {
+            addExpense(Value: fr.value)
+        }
+    }
+    
+    public func getRecordsForCategory(Category ctg: String) -> [FinancialRecord] {
+        return _financialRecords.filter { $0.category == ctg }
     }
    
+    public func getExpenses() -> [FinancialRecord] {
+        return _financialRecords.filter {_expenseCategories.contains($0.category)}
+    }
+    
     private var _balance: Double
     
     public private(set) var _incomeCategories: [String] = ["salary", "saving", "deposits", "other"]
     public private(set) var _expenseCategories: [String] = ["food", "medicines", "transport", "clothes", "entertaiment", "hygiene", "presents", "housing", "pets", "other"]
     
-    private static var _fn = FinancialManager()
-    private var _fr: [FinancialRecord] = []
+    private static var _fm = FinancialManager()
+    private var _financialRecords: [FinancialRecord] = []
 }

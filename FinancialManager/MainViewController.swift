@@ -15,26 +15,28 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func loadView()
-    {
+    override func loadView() {
         self.view = MainView(self)
     }
     
     func onBtnAddExpense() {
-        let newVC = AddRecordViewController(categoriesArray: _fn._expenseCategories, mainVC: self)
+        let newVC = AddRecordViewController(categoriesArray: _fm._expenseCategories, mainVC: self)
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
     func onBtnAddIncome() {
-        let newVC = AddRecordViewController(categoriesArray: _fn._incomeCategories, mainVC: self)
+        let newVC = AddRecordViewController(categoriesArray: _fm._incomeCategories, mainVC: self)
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
     public func addRecord(financialRecord fr: FinancialRecord) {
-        _fn.addRecord(financialRecord: fr)
+        _fm.addRecord(financialRecord: fr)
+        
+        (self.view as! MainView).update(financialRecords: _fm.getExpenses())
+        (self.view as! MainView).setBalanceValue(value: _fm.getBalance())
     }
     
-    private var _fn = FinancialManager.getInstance()
+    private var _fm = FinancialManager.getInstance()
     
 }
 

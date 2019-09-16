@@ -8,31 +8,37 @@
 
 import UIKit
 
-class MainView: UIView {
+class MainView: UIView, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let fr = _financialRecords {
+        return  fr.count
+        }
+        else {
+           return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "1", for: indexPath)
+        cell.textLabel?.text = _financialRecords![indexPath.row].category + " " + _financialRecords![indexPath.row].desription + " " + String(_financialRecords![indexPath.row].value)
+        return cell
+    }
+    
     
     init(_ vc: MainViewController?) {
         super.init(frame: CGRect.zero)
         self._vc = vc
         
-        _setAppearence()
+        _setAppearance()
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func _setAppearence(){
+    private func _setAppearance(){
         self.backgroundColor = UIColor.white
-      
-    
-       _btnMenu.translatesAutoresizingMaskIntoConstraints = false
-        _btnMenu.backgroundColor = UIColor(red: 0, green: 0.7, blue: 0, alpha: 0.5)
-        _btnMenu.layer.cornerRadius = 7.0
-        _btnMenu.imageView?.contentMode = .scaleAspectFill
-        _btnMenu.setBackgroundImage(UIImage(named: "btnMenu")?.withAlignmentRectInsets(UIEdgeInsets(top: -10, left: -10, bottom: -10, right: -10))
-, for: .normal)
-        //_btnAdd.addTarget(self, action: #selector(_onAddItemButton), for: .touchUpInside)
-        addSubview(_btnMenu)
         
         _lblBalance.translatesAutoresizingMaskIntoConstraints = false
         _lblBalance.text = "Balance: "
@@ -48,6 +54,8 @@ class MainView: UIView {
         addSubview(_lblBalancaValue)
         
         _expenseList.translatesAutoresizingMaskIntoConstraints = false
+        _expenseList.register(UITableViewCell.self, forCellReuseIdentifier: "1")
+        _expenseList.dataSource = self
         addSubview(_expenseList)
         
         _btnAddIncome.translatesAutoresizingMaskIntoConstraints = false
@@ -62,11 +70,6 @@ class MainView: UIView {
         
         NSLayoutConstraint.activate(
             [
-                _btnMenu.topAnchor.constraint(equalTo: self.topAnchor, constant: 90),
-                _btnMenu.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-                _btnMenu.widthAnchor.constraint(equalToConstant: 50),
-                _btnMenu.heightAnchor.constraint(equalToConstant: 50),
-                
                 _lblBalance.topAnchor.constraint(equalTo: self.topAnchor, constant: 130),
                 _lblBalance.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 25),
                 _lblBalance.trailingAnchor.constraint(equalTo: self.centerXAnchor),
@@ -93,14 +96,17 @@ class MainView: UIView {
                 _btnAddExpense.trailingAnchor.constraint(equalTo: self.centerXAnchor, constant: -75),
                 _btnAddExpense.heightAnchor.constraint(equalToConstant: 70),
                 _btnAddExpense.widthAnchor.constraint(equalToConstant: 70)
-                
-                
             ])
-        
     }
     
     public func setBalanceValue(value v: Double) {
         _lblBalancaValue.text = String(v)
+    }
+    
+    public func update(financialRecords records: [FinancialRecord]) {
+        _financialRecords = records
+        
+        _expenseList.reloadData()
     }
     
     @objc
@@ -116,12 +122,12 @@ class MainView: UIView {
     private let _lblBalance = UILabel(frame: CGRect.zero)
     private var _lblBalancaValue = UILabel(frame: CGRect.zero)
     
-    private let _btnMenu = UIButton(type: .roundedRect)
-    
     private var _expenseList = UITableView(frame: CGRect.zero, style: .plain)
     
     private let _btnAddIncome = UIButton(type: .roundedRect)
     private let _btnAddExpense = UIButton(type: .roundedRect)
+    
+    private var _financialRecords: [FinancialRecord]?
 
     private weak var _vc: MainViewController?
 }
