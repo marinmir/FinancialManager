@@ -37,6 +37,5 @@ class MainViewController: UIViewController {
     }
     
     private var _fm = FinancialManager.getInstance()
-    
 }
 

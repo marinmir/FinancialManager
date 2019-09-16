@@ -12,7 +12,6 @@ class AddRecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     override func loadView()
@@ -33,6 +32,8 @@ class AddRecordViewController: UIViewController {
     
     public func onBtnAdd(financialRecord fr: FinancialRecord) {
         _mainVC?.addRecord(financialRecord: fr)
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     private var _ctgArray: [String] = []
