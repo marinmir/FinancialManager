@@ -33,7 +33,7 @@ class FinancialManager{
     
         _financialRecords.append(fr)
         
-        if _incomeCategories.contains(fr.category)
+        if incomeCategories.contains(fr.category)
         {
             addIncome(Value: fr.value)
         }
@@ -42,18 +42,22 @@ class FinancialManager{
         }
     }
     
-    public func getRecordsForCategory(Category ctg: String) -> [FinancialRecord] {
+   /* public func getRecordsForCategory(Category ctg: String) -> [FinancialRecord] {
         return _financialRecords.filter { $0.category == ctg }
-    }
+    } */
    
-    public func getExpenses() -> [FinancialRecord] {
+    /*public func getExpenses() -> [FinancialRecord] {
         return _financialRecords.filter {_expenseCategories.contains($0.category)}
+    }*/
+    
+    public func getRecords() ->[FinancialRecord] {
+        return _financialRecords
     }
     
     private var _balance: Double
     
-    public private(set) var _incomeCategories: [String] = ["salary", "saving", "deposits", "other"]
-    public private(set) var _expenseCategories: [String] = ["food", "medicines", "transport", "clothes", "entertaiment", "hygiene", "presents", "housing", "pets", "other"]
+    public private(set) var incomeCategories: [String] = ["salary", "saving", "deposits", "other"]
+    public private(set) var expenseCategories: [String] = ["food", "medicines", "transport", "clothes", "entertaiment", "hygiene", "presents", "housing", "pets", "other"]
     
     private static var _fm = FinancialManager()
     private var _financialRecords: [FinancialRecord] = []

@@ -20,8 +20,18 @@ class MainView: UIView, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+       
+        dateFormatter.dateFormat = "MMM d, h:mm a"
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "1", for: indexPath)
-        cell.textLabel?.text = _financialRecords![indexPath.row].category + " " + _financialRecords![indexPath.row].desription + " " + String(_financialRecords![indexPath.row].value)
+        
+        cell.textLabel?.lineBreakMode = .byWordWrapping
+        cell.textLabel?.numberOfLines = 0
+        
+        cell.textLabel?.text = "Category: " + _financialRecords![indexPath.row].category + ", description: " + _financialRecords![indexPath.row].desription + ", sum = " + String(_financialRecords![indexPath.row].value) + ", date: " +        (dateFormatter.string(from: _financialRecords![indexPath.row].date))
         return cell
     }
     

@@ -20,19 +20,19 @@ class MainViewController: UIViewController {
     }
     
     func onBtnAddExpense() {
-        let newVC = AddRecordViewController(categoriesArray: _fm._expenseCategories, mainVC: self)
+        let newVC = AddRecordViewController(categoriesArray: _fm.expenseCategories, mainVC: self)
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
     func onBtnAddIncome() {
-        let newVC = AddRecordViewController(categoriesArray: _fm._incomeCategories, mainVC: self)
+        let newVC = AddRecordViewController(categoriesArray: _fm.incomeCategories, mainVC: self)
         self.navigationController?.pushViewController(newVC, animated: true)
     }
     
     public func addRecord(financialRecord fr: FinancialRecord) {
         _fm.addRecord(financialRecord: fr)
         
-        (self.view as! MainView).update(financialRecords: _fm.getExpenses())
+        (self.view as! MainView).update(financialRecords: _fm.getRecords())
         (self.view as! MainView).setBalanceValue(value: _fm.getBalance())
     }
     
